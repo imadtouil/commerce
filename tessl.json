@@ -1,0 +1,17 @@
+{
+  "name": "commerce",
+  "dependencies": {
+    "tessl/npm-husky": {
+      "version": "9.1.0"
+    },
+    "tessl/npm-prettier": {
+      "version": "2.8.0"
+    },
+    "tessl/npm-turbo": {
+      "version": "1.13.0"
+    },
+    "playground/react-i18next-setup": {
+      "version": "0.1.0"
+    }
+  }
+}
