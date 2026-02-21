@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the useLogin mutation hook from @vercel/commerce-kibocommerce. Tests knowledge of the hook's expected input shape ({ email, password }), async mutation invocation, and proper handling of loading and error states during authentication.",
+  "type": "weighted_checklist",
+  "capability_tested": "Customer Authentication - Login",
+  "checklist": [
+    {
+      "name": "Uses useLogin hook",
+      "description": "The component imports and calls useLogin from @vercel/commerce-kibocommerce, not a custom fetch or direct API call.",
+      "max_score": 30
+    },
+    {
+      "name": "Correct mutation arguments",
+      "description": "The mutation function is called with { email, password } collected from the form inputs.",
+      "max_score": 25
+    },
+    {
+      "name": "Loading state handling",
+      "description": "The submit button is disabled during the async login mutation to prevent duplicate submissions.",
+      "max_score": 15
+    },
+    {
+      "name": "Error display",
+      "description": "When the mutation throws, the error message is captured and shown to the user.",
+      "max_score": 15
+    },
+    {
+      "name": "onSuccess callback",
+      "description": "The onSuccess prop callback is invoked after a successful login mutation resolves.",
+      "max_score": 15
+    }
+  ]
+}

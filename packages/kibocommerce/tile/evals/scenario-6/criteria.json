@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the useSearch SWR hook from @vercel/commerce-kibocommerce for product catalog queries. Tests knowledge of the hook's input parameters (search, categoryId), return shape (products, found, isLoading, error), and correct rendering for loading, result, and empty states.",
+  "type": "weighted_checklist",
+  "capability_tested": "Product Search",
+  "checklist": [
+    {
+      "name": "Uses useSearch hook",
+      "description": "The component imports and calls useSearch from @vercel/commerce-kibocommerce, not a custom fetch.",
+      "max_score": 30
+    },
+    {
+      "name": "Search parameter passed",
+      "description": "The text input's current value is passed as the search parameter to useSearch.",
+      "max_score": 20
+    },
+    {
+      "name": "Uses found property",
+      "description": "The component uses the found property from the hook's return value to display result count or empty state.",
+      "max_score": 20
+    },
+    {
+      "name": "isLoading handling",
+      "description": "While isLoading is true, a loading indicator is rendered instead of results.",
+      "max_score": 15
+    },
+    {
+      "name": "categoryId prop forwarded",
+      "description": "When a categoryId prop is provided, it is passed to the useSearch hook as the categoryId parameter.",
+      "max_score": 15
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "playground/vercel-commerce-kibocommerce",
+  "version": "0.0.1",
+  "docs": "docs/index.md",
+  "describes": "pkg:npm/%40vercel/commerce-kibocommerce@0.0.1",
+  "summary": "Kibo Commerce provider for the Next.js Commerce framework, enabling e-commerce storefronts with cart, wishlist, authentication, and product search via Kibo's GraphQL API.",
+  "private": true
+}

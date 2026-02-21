@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly configures the Kibo Commerce API for server-side use, including OAuth client credentials authentication via APIAuthenticationHelper and the correct wiring of the GraphQL fetcher. Tests knowledge of the KiboCommerceConfig interface and required environment variable mappings.",
+  "type": "weighted_checklist",
+  "capability_tested": "API Authentication with Client Credentials",
+  "checklist": [
+    {
+      "name": "Uses package config factory",
+      "description": "The module uses the Kibo Commerce package's configuration factory or createCommerceProvider setup rather than building a raw HTTP client from scratch.",
+      "max_score": 25
+    },
+    {
+      "name": "All required env vars mapped",
+      "description": "commerceUrl (KIBO_API_URL), clientId (KIBO_CLIENT_ID), sharedSecret (KIBO_SHARED_SECRET), and authUrl (KIBO_AUTH_URL) are all read from environment variables.",
+      "max_score": 30
+    },
+    {
+      "name": "cartCookie default fallback",
+      "description": "The cartCookie value uses KIBO_CART_COOKIE with a fallback to 'kibo_cart' when the env var is not set.",
+      "max_score": 15
+    },
+    {
+      "name": "Package GraphQL fetcher used",
+      "description": "The fetch field in the config uses the package-provided GraphQL fetcher (fetchGraphqlApi or equivalent), not a plain fetch or third-party HTTP client.",
+      "max_score": 20
+    },
+    {
+      "name": "customerCookie configured",
+      "description": "The customerCookie is supplied from the KIBO_CUSTOMER_COOKIE environment variable.",
+      "max_score": 10
+    }
+  ]
+}

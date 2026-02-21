@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the useWishlist SWR hook from @vercel/commerce-kibocommerce. Tests knowledge of the hook's includeProducts parameter, the authentication requirement (customerId auto-fetched from useCustomer), the isEmpty computed property, and proper rendering for unauthenticated, loading, empty, and populated wishlist states.",
+  "type": "weighted_checklist",
+  "capability_tested": "Wishlist Retrieval",
+  "checklist": [
+    {
+      "name": "Uses useWishlist hook",
+      "description": "The component imports and calls useWishlist from @vercel/commerce-kibocommerce.",
+      "max_score": 25
+    },
+    {
+      "name": "includeProducts parameter",
+      "description": "The hook is called with { includeProducts: true } so product details are included in wishlist items.",
+      "max_score": 20
+    },
+    {
+      "name": "isEmpty property used",
+      "description": "The component uses the isEmpty property from wishlist data (not manually checking lineItems.length).",
+      "max_score": 20
+    },
+    {
+      "name": "isLoading handling",
+      "description": "A loading state is shown while the wishlist data is being fetched.",
+      "max_score": 15
+    },
+    {
+      "name": "Unauthenticated state",
+      "description": "When no customer data is available, the component renders an appropriate sign-in prompt.",
+      "max_score": 20
+    }
+  ]
+}

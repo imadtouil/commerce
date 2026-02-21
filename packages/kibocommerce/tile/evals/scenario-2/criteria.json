@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the useAddItem mutation hook from @vercel/commerce-kibocommerce to add products to the cart. Tests knowledge of the mutation hook pattern, correct argument shape ({ productId, variantId, quantity }), and appropriate UI state management during the async operation.",
+  "type": "weighted_checklist",
+  "capability_tested": "Add Item to Cart",
+  "checklist": [
+    {
+      "name": "Uses useAddItem hook",
+      "description": "The component imports and calls useAddItem from the cart module of @vercel/commerce-kibocommerce, not a generic fetch or custom API call.",
+      "max_score": 30
+    },
+    {
+      "name": "Correct argument shape",
+      "description": "The mutation function is called with an object containing productId, variantId, and quantity matching the hook's expected input.",
+      "max_score": 25
+    },
+    {
+      "name": "Loading state disables button",
+      "description": "During the async mutation, the button is disabled and shows a different label (e.g., 'Adding...').",
+      "max_score": 20
+    },
+    {
+      "name": "Error handling",
+      "description": "Errors from the mutation are caught and displayed to the user, not silently swallowed.",
+      "max_score": 15
+    },
+    {
+      "name": "Default quantity",
+      "description": "The component uses a default quantity of 1 when the prop is not provided.",
+      "max_score": 10
+    }
+  ]
+}

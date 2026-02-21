@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly sets up the Kibo Commerce provider in a Next.js application. Tests knowledge of the CommerceProvider component, the kiboCommerceProvider configuration object, and the useCommerce hook from the @vercel/commerce-kibocommerce package.",
+  "type": "weighted_checklist",
+  "capability_tested": "Commerce Provider Setup",
+  "checklist": [
+    {
+      "name": "Import kiboCommerceProvider",
+      "description": "The solution imports kiboCommerceProvider from @vercel/commerce-kibocommerce (not a custom object or placeholder).",
+      "max_score": 20
+    },
+    {
+      "name": "Import CommerceProvider",
+      "description": "The solution imports CommerceProvider from @vercel/commerce-kibocommerce or @vercel/commerce and uses it as the wrapping component.",
+      "max_score": 20
+    },
+    {
+      "name": "Provider prop passed correctly",
+      "description": "kiboCommerceProvider is passed as the provider prop to CommerceProvider.",
+      "max_score": 25
+    },
+    {
+      "name": "Children rendered",
+      "description": "The wrapper component correctly accepts and renders the children prop inside CommerceProvider.",
+      "max_score": 15
+    },
+    {
+      "name": "useCommerce hook exported",
+      "description": "A hook using useCommerce from the package is exported and returns the commerce context.",
+      "max_score": 20
+    }
+  ]
+}
