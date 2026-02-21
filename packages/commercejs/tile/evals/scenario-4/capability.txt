@@ -1,0 +1,1 @@
+Fetch Single Product by Slug (Server-Side)

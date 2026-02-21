@@ -1,0 +1,27 @@
+{
+  "context": "This criteria evaluates correct usage of the useLogin mutation hook from @vercel/commerce-commercejs to initiate the Commerce.js passwordless login flow. It assesses email argument passing, callback URL construction using the deployment URL helper, and proper hook invocation patterns.",
+  "type": "weighted_checklist",
+  "capability_tested": "Customer Authentication - Login",
+  "checklist": [
+    {
+      "name": "useLogin hook usage",
+      "description": "The useLogin mutation hook is imported from @vercel/commerce-commercejs and properly initialized",
+      "max_score": 25
+    },
+    {
+      "name": "Email argument",
+      "description": "The mutation is called with the email address collected from the form input",
+      "max_score": 30
+    },
+    {
+      "name": "Callback URL construction",
+      "description": "The login callback URL is constructed using the deployment URL helper, pointing to the /api/login endpoint. The base URL is resolved from NEXT_PUBLIC_COMMERCEJS_DEPLOYMENT_URL, NEXT_PUBLIC_VERCEL_URL, or falls back to http://localhost:3000",
+      "max_score": 25
+    },
+    {
+      "name": "Form submission handling",
+      "description": "The form's default submission behavior is prevented and the mutation is invoked asynchronously on form submit",
+      "max_score": 20
+    }
+  ]
+}

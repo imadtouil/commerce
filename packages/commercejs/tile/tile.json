@@ -1,0 +1,8 @@
+{
+  "name": "playground/vercel-commerce-commercejs",
+  "version": "0.0.1",
+  "docs": "docs/index.md",
+  "describes": "pkg:npm/%40vercel/commerce-commercejs@0.0.1",
+  "summary": "Commerce.js provider for Next.js Commerce, implementing cart, product search, customer authentication, and checkout via the Commerce.js headless e-commerce platform.",
+  "private": true
+}

@@ -1,0 +1,27 @@
+{
+  "context": "This criteria evaluates correct usage of the getSiteInfo server-side operation from @vercel/commerce-commercejs to fetch product categories and site metadata. It assesses proper operation invocation, correct category normalization, and accurate handling of the brands field which is intentionally empty in this provider.",
+  "type": "weighted_checklist",
+  "capability_tested": "Site Info and Category Listing",
+  "checklist": [
+    {
+      "name": "getSiteInfo operation",
+      "description": "The getSiteInfo operation is imported from @vercel/commerce-commercejs and called server-side",
+      "max_score": 30
+    },
+    {
+      "name": "Normalized categories",
+      "description": "Each category in the returned array has id, name, slug, and path fields derived from Commerce.js category data via normalizeCategory",
+      "max_score": 30
+    },
+    {
+      "name": "Empty brands array",
+      "description": "The brands field in the returned data is an empty array, as Commerce.js does not expose a brands API in this provider",
+      "max_score": 20
+    },
+    {
+      "name": "Props structure",
+      "description": "The function returns an object with a props key containing both categories and brands fields",
+      "max_score": 20
+    }
+  ]
+}

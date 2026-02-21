@@ -1,0 +1,32 @@
+{
+  "context": "This criteria evaluates correct implementation of the product normalization utility from @vercel/commerce-commercejs. It assesses accurate transformation of raw Commerce.js product fields into the normalized @vercel/commerce format, including slug/path construction, image mapping, and variant group to options mapping.",
+  "type": "weighted_checklist",
+  "capability_tested": "Product Data Normalization",
+  "checklist": [
+    {
+      "name": "Slug normalization",
+      "description": "The normalized product's slug field is derived from the raw product's permalink field",
+      "max_score": 20
+    },
+    {
+      "name": "Path construction",
+      "description": "The normalized product's path field is constructed as '/' + permalink (e.g., '/my-product')",
+      "max_score": 20
+    },
+    {
+      "name": "Image mapping",
+      "description": "Each image in the raw product is mapped to an object with url (from image.url) and alt (from image.description or empty string) fields",
+      "max_score": 20
+    },
+    {
+      "name": "Variant group to options mapping",
+      "description": "The raw product's variant_groups array is mapped to the options array with displayName and values fields; variant values are extracted correctly",
+      "max_score": 20
+    },
+    {
+      "name": "Variants normalization",
+      "description": "Each variant is normalized with its id, sku, and options array, where options reference the corresponding variant group and selected values",
+      "max_score": 20
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "context": "This criteria evaluates correct usage of the useAddItem mutation hook from @vercel/commerce-commercejs for adding products to the shopping cart. It assesses proper hook invocation, correct argument passing (productId, variantId, quantity), and SWR cache mutation after the operation.",
+  "type": "weighted_checklist",
+  "capability_tested": "Add Item to Cart",
+  "checklist": [
+    {
+      "name": "useAddItem hook import",
+      "description": "The useAddItem hook is imported from @vercel/commerce-commercejs cart module and properly initialized",
+      "max_score": 25
+    },
+    {
+      "name": "productId argument",
+      "description": "The mutation is called with the correct productId from the component's props",
+      "max_score": 25
+    },
+    {
+      "name": "variantId argument",
+      "description": "When a variantId prop is provided, it is passed to the mutation call; when absent, it is omitted or undefined",
+      "max_score": 20
+    },
+    {
+      "name": "Default quantity",
+      "description": "When quantity is not specified, the mutation relies on the hook's default (quantity of 1) rather than hardcoding or calculating a value",
+      "max_score": 20
+    },
+    {
+      "name": "Async handling",
+      "description": "The mutation call is awaited or handled as a promise, and any loading or error state is managed appropriately",
+      "max_score": 10
+    }
+  ]
+}

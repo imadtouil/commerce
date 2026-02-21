@@ -1,0 +1,27 @@
+{
+  "context": "This criteria evaluates correct implementation of the checkout order submission API route using @vercel/commerce-commercejs. It assesses the three-step checkout flow: token generation from cart, shipping options retrieval, and order capture with normalized payment and address data.",
+  "type": "weighted_checklist",
+  "capability_tested": "Checkout Order Submission",
+  "checklist": [
+    {
+      "name": "Checkout token generation",
+      "description": "A checkout token is generated from the cart using the cart ID, with 'cart' specified as the token source type via checkout.generateTokenFrom()",
+      "max_score": 25
+    },
+    {
+      "name": "Shipping options retrieval",
+      "description": "Available shipping options are fetched using the generated checkout token with a country filter (US country code) via checkout.getShippingOptions()",
+      "max_score": 25
+    },
+    {
+      "name": "Order capture",
+      "description": "The order is captured using the checkout token, the first available shipping option, and the card/address data via checkout.capture()",
+      "max_score": 25
+    },
+    {
+      "name": "Payment data normalization",
+      "description": "The card data is normalized into the Commerce.js checkout capture format using the normalizeTestCheckout utility, mapping card number, expiry, and CVC fields",
+      "max_score": 25
+    }
+  ]
+}

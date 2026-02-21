@@ -1,0 +1,27 @@
+{
+  "context": "This criteria evaluates correct usage of the useCustomer SWR hook from @vercel/commerce-commercejs for retrieving the logged-in customer's profile. It assesses proper hook invocation, correct handling of null (logged out) state, loading state, and display of profile fields.",
+  "type": "weighted_checklist",
+  "capability_tested": "Customer Profile Retrieval",
+  "checklist": [
+    {
+      "name": "useCustomer hook usage",
+      "description": "The useCustomer hook is imported from @vercel/commerce-commercejs and called without arguments",
+      "max_score": 30
+    },
+    {
+      "name": "Logged-in state display",
+      "description": "When useCustomer returns a customer object, firstName, lastName, and email are rendered from the customer data",
+      "max_score": 30
+    },
+    {
+      "name": "Null (logged out) state",
+      "description": "When useCustomer returns null or undefined, the component renders a 'not logged in' message",
+      "max_score": 20
+    },
+    {
+      "name": "Loading state",
+      "description": "When useCustomer data is undefined (still loading), the component renders a loading indicator",
+      "max_score": 20
+    }
+  ]
+}

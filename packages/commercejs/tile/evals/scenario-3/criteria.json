@@ -1,0 +1,32 @@
+{
+  "context": "This criteria evaluates correct usage of the useSearch SWR hook from @vercel/commerce-commercejs for product search and filtering. It assesses proper hook parameter usage including search text, categoryId, and sort options, as well as correct handling of the found boolean and products array.",
+  "type": "weighted_checklist",
+  "capability_tested": "Product Search and Filtering",
+  "checklist": [
+    {
+      "name": "useSearch hook usage",
+      "description": "The useSearch hook is imported from @vercel/commerce-commercejs and called with an input object",
+      "max_score": 20
+    },
+    {
+      "name": "search parameter",
+      "description": "The search prop is passed to the useSearch hook as the search field in the input object",
+      "max_score": 20
+    },
+    {
+      "name": "categoryId parameter",
+      "description": "The categoryId prop is passed to the useSearch hook as the categoryId field in the input object",
+      "max_score": 20
+    },
+    {
+      "name": "sort parameter",
+      "description": "The sort prop is passed to the useSearch hook as the sort field. Valid values include 'price-asc', 'price-desc', 'trending-desc', 'latest-desc'",
+      "max_score": 20
+    },
+    {
+      "name": "found flag handling",
+      "description": "When the hook returns found: false (or products is empty), the component renders a 'no products' message; when found: true, it renders the products list",
+      "max_score": 20
+    }
+  ]
+}
