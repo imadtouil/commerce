@@ -1,0 +1,37 @@
+{
+  "context": "Evaluates correct usage of the Vendure package's normalizeCart utility function, including importing it from the package, verifying correct field mappings (id as string, prices divided by 100, taxesIncluded: true), and line item normalization including discounted prices and image URL formatting.",
+  "type": "weighted_checklist",
+  "capability_tested": "Cart Data Normalization",
+  "checklist": [
+    {
+      "name": "Import normalizeCart",
+      "description": "The solution imports `normalizeCart` from `@vercel/commerce-vendure` (via the utils path) and calls it with a Vendure Order/CartFragment object.",
+      "max_score": 20
+    },
+    {
+      "name": "id toString conversion",
+      "description": "The normalized cart's `id` is the string representation of the Vendure Order's numeric `id` (e.g. 42 becomes '42').",
+      "max_score": 15
+    },
+    {
+      "name": "Prices divided by 100",
+      "description": "The `subtotalPrice`, `totalPrice`, and `lineItemsSubtotalPrice` are all divided by 100 from the Vendure `subTotalWithTax` and `totalWithTax` values.",
+      "max_score": 20
+    },
+    {
+      "name": "taxesIncluded: true",
+      "description": "The normalized cart always has `taxesIncluded: true` regardless of the input order's tax configuration.",
+      "max_score": 10
+    },
+    {
+      "name": "Line item prices",
+      "description": "Line item `variant.price` is `discountedUnitPriceWithTax / 100` and `variant.listPrice` is `unitPriceWithTax / 100`.",
+      "max_score": 20
+    },
+    {
+      "name": "Image URL with ?preset=thumb",
+      "description": "Line item image URLs have `?preset=thumb` appended to `featuredAsset.preview`.",
+      "max_score": 15
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "playground/vercel-commerce-vendure",
+  "version": "0.0.1",
+  "docs": "docs/index.md",
+  "describes": "pkg:npm/%40vercel/commerce-vendure@0.0.1",
+  "summary": "Vendure provider for Next.js Commerce — a commerce backend integration adapter that connects Vendure's headless GraphQL commerce platform to the @vercel/commerce framework.",
+  "private": true
+}

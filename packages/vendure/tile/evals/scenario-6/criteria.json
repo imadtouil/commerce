@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates correct usage of the Vendure product search hook, including importing useSearch from the package, passing search/categoryId/sort inputs, and verifying the normalized product shape returned including price division by 100 and image URL formatting.",
+  "type": "weighted_checklist",
+  "capability_tested": "Product Search",
+  "checklist": [
+    {
+      "name": "Import useSearch",
+      "description": "The solution imports `useSearch` from `@vercel/commerce-vendure` and calls it as a hook with input values for search, categoryId, brandId, or sort.",
+      "max_score": 20
+    },
+    {
+      "name": "found + products shape",
+      "description": "The solution uses both `found` (boolean) and `products` (array) from the hook's return value, rendering conditionally based on `found`.",
+      "max_score": 25
+    },
+    {
+      "name": "Price normalization",
+      "description": "The solution correctly expects `price.value` to be the Vendure `priceWithTax` divided by 100 (e.g. 1999 becomes 19.99), not the raw integer.",
+      "max_score": 25
+    },
+    {
+      "name": "Image URL format",
+      "description": "The solution correctly expects product image URLs to have `?w=800&mode=crop` appended to the Vendure asset preview URL.",
+      "max_score": 15
+    },
+    {
+      "name": "categoryId → collectionId",
+      "description": "The solution demonstrates or tests that passing `categoryId` to `useSearch` results in `collectionId` being used in the Vendure search GraphQL variables.",
+      "max_score": 15
+    }
+  ]
+}

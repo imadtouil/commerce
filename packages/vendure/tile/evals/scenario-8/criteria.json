@@ -1,0 +1,27 @@
+{
+  "context": "Evaluates correct usage of the Vendure getSiteInfo API operation and the arrayToTree utility. Focuses on using getCommerceApi to access getSiteInfo, verifying that the flat Vendure collection list is converted to a hierarchical tree, and that each category's path is formatted as /${id}.",
+  "type": "weighted_checklist",
+  "capability_tested": "Site Collections Hierarchy",
+  "checklist": [
+    {
+      "name": "Use getCommerceApi + getSiteInfo",
+      "description": "The solution calls `getCommerceApi()` and invokes the `getSiteInfo` operation, not a raw GraphQL fetch, to retrieve collection data.",
+      "max_score": 25
+    },
+    {
+      "name": "Returns hierarchical categories",
+      "description": "The categories returned are a nested tree structure (children nested within parents), not a flat array, demonstrating that arrayToTree was applied.",
+      "max_score": 30
+    },
+    {
+      "name": "Path is /${id}",
+      "description": "Each category object in the result has a `path` property formatted as `/${collection.id}`, not `/${slug}` or any other format.",
+      "max_score": 25
+    },
+    {
+      "name": "Empty brands array",
+      "description": "The function returns `brands: []` (empty array) alongside categories, as Vendure does not provide brand data.",
+      "max_score": 20
+    }
+  ]
+}

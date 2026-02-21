@@ -1,0 +1,27 @@
+{
+  "context": "Evaluates correct usage of the Vendure package's signup hook, focusing on importing useSignup, passing all four required fields (firstName, lastName, email, password), CommerceError on missing fields, and ValidationError when the API returns a non-Success result.",
+  "type": "weighted_checklist",
+  "capability_tested": "Customer Registration",
+  "checklist": [
+    {
+      "name": "Import useSignup",
+      "description": "The solution imports `useSignup` from `@vercel/commerce-vendure` and calls it as a hook to get the signup mutation function.",
+      "max_score": 20
+    },
+    {
+      "name": "Four required fields",
+      "description": "The signup function is called with `{ firstName, lastName, email, password }` matching the `SignupInput` type; all four fields must be present.",
+      "max_score": 30
+    },
+    {
+      "name": "CommerceError on missing field",
+      "description": "When any of the four required fields is falsy/missing, the solution handles or demonstrates the `CommerceError` thrown before any network call.",
+      "max_score": 25
+    },
+    {
+      "name": "ValidationError on API error",
+      "description": "When the API returns a non-Success `__typename` (e.g. an error result), the solution handles or demonstrates the `ValidationError` thrown by the hook.",
+      "max_score": 25
+    }
+  ]
+}

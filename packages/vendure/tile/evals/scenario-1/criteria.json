@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates correct usage of the Vendure package's `fetcher` export, focusing on environment variable resolution order (NEXT_PUBLIC_VENDURE_LOCAL_URL before NEXT_PUBLIC_VENDURE_SHOP_API_URL), correct request format including credentials and Content-Type, and proper error handling using FetcherError.",
+  "type": "weighted_checklist",
+  "capability_tested": "GraphQL Fetcher Configuration",
+  "checklist": [
+    {
+      "name": "Import fetcher",
+      "description": "The solution imports the `fetcher` directly from `@vercel/commerce-vendure` (via the package's exports) rather than implementing a custom fetch function.",
+      "max_score": 20
+    },
+    {
+      "name": "LOCAL_URL priority",
+      "description": "The solution correctly demonstrates that `NEXT_PUBLIC_VENDURE_LOCAL_URL` takes priority over `NEXT_PUBLIC_VENDURE_SHOP_API_URL` when both are set.",
+      "max_score": 25
+    },
+    {
+      "name": "Missing URL error",
+      "description": "When neither environment variable is set, calling the fetcher throws an error (not silently fails), indicating the Shop API URL has not been provided.",
+      "max_score": 20
+    },
+    {
+      "name": "FetcherError on failure",
+      "description": "The fetcher throws a `FetcherError` (from `@vercel/commerce/utils/errors`) rather than a plain Error when the API returns errors or a non-OK response.",
+      "max_score": 20
+    },
+    {
+      "name": "credentials: include",
+      "description": "The fetcher is used in a context that relies on `credentials: 'include'` being part of the request, enabling Vendure's session-cookie-based auth to work.",
+      "max_score": 15
+    }
+  ]
+}

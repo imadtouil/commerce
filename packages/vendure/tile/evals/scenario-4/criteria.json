@@ -1,0 +1,27 @@
+{
+  "context": "Evaluates correct usage of the Vendure package's login hook, including importing useLogin from the package, passing email/password credentials, CommerceError on missing credentials, and ValidationError on API-level authentication failures.",
+  "type": "weighted_checklist",
+  "capability_tested": "Customer Login Authentication",
+  "checklist": [
+    {
+      "name": "Import useLogin",
+      "description": "The solution imports `useLogin` from `@vercel/commerce-vendure` and calls it as a hook to get the login mutation function.",
+      "max_score": 20
+    },
+    {
+      "name": "email + password input",
+      "description": "The login function is called with `{ email, password }` matching the LoginHook's actionInput shape; the hook internally maps email to the `username` field in the GraphQL mutation.",
+      "max_score": 25
+    },
+    {
+      "name": "CommerceError on empty fields",
+      "description": "When email or password is empty/falsy, the solution handles or demonstrates the `CommerceError` thrown before any network call.",
+      "max_score": 25
+    },
+    {
+      "name": "ValidationError on auth failure",
+      "description": "When the API returns an error typename (InvalidCredentialsError, NotVerifiedError, NativeAuthStrategyError), the solution handles or demonstrates the `ValidationError` thrown by the hook.",
+      "max_score": 30
+    }
+  ]
+}
