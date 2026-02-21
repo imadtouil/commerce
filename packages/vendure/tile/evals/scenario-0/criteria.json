@@ -1,0 +1,27 @@
+{
+  "context": "Evaluates correct usage of the Vendure commerce provider integration, including how the CommerceProvider is initialized with vendureProvider and how useCommerce is re-exported. Focuses on whether the package's pre-built provider configuration is used rather than a custom one.",
+  "type": "weighted_checklist",
+  "capability_tested": "CommerceProvider Integration",
+  "checklist": [
+    {
+      "name": "Import vendureProvider",
+      "description": "The solution imports `vendureProvider` from `@vercel/commerce-vendure` and uses it (not a manually constructed object) when initializing the provider.",
+      "max_score": 25
+    },
+    {
+      "name": "Use CommerceProvider",
+      "description": "The solution imports and renders the `CommerceProvider` component from `@vercel/commerce-vendure` to wrap children, not a generic React context provider.",
+      "max_score": 30
+    },
+    {
+      "name": "Re-export useCommerce",
+      "description": "The `useVendureCommerce` hook calls or re-exports `useCommerce` from `@vercel/commerce-vendure`, not from `@vercel/commerce` directly.",
+      "max_score": 25
+    },
+    {
+      "name": "Correct children prop",
+      "description": "The layout component accepts and passes `children` through to `CommerceProvider` correctly, enabling the provider to wrap child components.",
+      "max_score": 20
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates correct usage of the Vendure API's getProduct operation, focusing on initializing getCommerceApi, calling getProduct with a slug variable, and verifying the complex normalization of variants (option groups mapped by groupId), price (divided by 100 from first variant), and images (from assets array).",
+  "type": "weighted_checklist",
+  "capability_tested": "Get Product by Slug",
+  "checklist": [
+    {
+      "name": "Use getCommerceApi",
+      "description": "The solution calls `getCommerceApi()` from `@vercel/commerce-vendure` to obtain the API instance, rather than constructing a fetcher manually.",
+      "max_score": 20
+    },
+    {
+      "name": "getProduct with slug variable",
+      "description": "The `getProduct` operation is called with `{ variables: { slug } }` where slug is a string, matching the operation's expected input.",
+      "max_score": 20
+    },
+    {
+      "name": "Option group name lookup",
+      "description": "The solution correctly expects `displayName` on each variant option to be the option group name found by matching `groupId` to `optionGroups[].id`.",
+      "max_score": 25
+    },
+    {
+      "name": "MultipleChoiceOption __typename",
+      "description": "Each variant option in the normalized product has `__typename: 'MultipleChoiceOption'`, as required by the commerce framework's variant selection logic.",
+      "max_score": 15
+    },
+    {
+      "name": "Price from first variant / 100",
+      "description": "The product's `price.value` equals `variants[0].priceWithTax / 100`, not the raw integer value.",
+      "max_score": 20
+    }
+  ]
+}

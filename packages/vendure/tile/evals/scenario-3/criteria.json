@@ -1,0 +1,27 @@
+{
+  "context": "Evaluates correct usage of the Vendure package's update-item mutation hook, including passing a LineItem as the item context to the hook, calling the returned function with a new quantity, and handling ValidationError when required IDs are missing.",
+  "type": "weighted_checklist",
+  "capability_tested": "Update Cart Item Quantity",
+  "checklist": [
+    {
+      "name": "Import useUpdateItem",
+      "description": "The solution imports `useUpdateItem` from `@vercel/commerce-vendure` and invokes it as a hook with an optional `{ item }` context object.",
+      "max_score": 25
+    },
+    {
+      "name": "Pass item context",
+      "description": "The hook is called with `{ item: lineItem }` where lineItem has `id`, `productId`, and `variantId`, enabling the returned function to resolve IDs automatically.",
+      "max_score": 30
+    },
+    {
+      "name": "ValidationError on missing IDs",
+      "description": "The solution demonstrates that calling the update function when itemId, productId, or variantId cannot be resolved throws a `ValidationError` from the package.",
+      "max_score": 25
+    },
+    {
+      "name": "Cart mutate after success",
+      "description": "After a successful quantity update, the cart data is refreshed (mutate is called under the hood), so the updated quantity is reflected in the cart state.",
+      "max_score": 20
+    }
+  ]
+}

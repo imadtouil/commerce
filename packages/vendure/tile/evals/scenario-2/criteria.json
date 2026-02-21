@@ -1,0 +1,27 @@
+{
+  "context": "Evaluates correct usage of the Vendure package's add-to-cart mutation hook, including proper import of the hook, passing variantId and quantity as variables, handling of the CommerceError thrown on invalid quantities, and the default quantity of 1 when not specified.",
+  "type": "weighted_checklist",
+  "capability_tested": "Add Item to Cart",
+  "checklist": [
+    {
+      "name": "Import useAddItem",
+      "description": "The solution imports `useAddItem` from `@vercel/commerce-vendure` (or from the cart sub-path) and calls it as a hook, not reimplementing the mutation manually.",
+      "max_score": 25
+    },
+    {
+      "name": "Pass variantId + quantity",
+      "description": "The hook's returned function is called with an object containing `variantId` (string/ID) and `quantity` (number), matching the AddItemHook's actionInput shape.",
+      "max_score": 25
+    },
+    {
+      "name": "CommerceError on bad quantity",
+      "description": "The solution correctly handles or demonstrates that a `CommerceError` (not a plain Error) is thrown when quantity is not a positive integer.",
+      "max_score": 25
+    },
+    {
+      "name": "Default quantity = 1",
+      "description": "When quantity is omitted or undefined, the mutation defaults to quantity 1, as per the hook's fetcher implementation.",
+      "max_score": 25
+    }
+  ]
+}
