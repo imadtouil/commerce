@@ -1,0 +1,32 @@
+{
+  "context": "This criteria evaluates correct usage of the useUpdateItem mutation hook from @vercel/commerce-commercejs for updating cart item quantities. It focuses on proper hook initialization with a wait/debounce context, correct argument passing, and usage of the debounce feature.",
+  "type": "weighted_checklist",
+  "capability_tested": "Update Cart Item Quantity",
+  "checklist": [
+    {
+      "name": "useUpdateItem hook usage",
+      "description": "The useUpdateItem hook is imported from @vercel/commerce-commercejs and properly initialized",
+      "max_score": 25
+    },
+    {
+      "name": "Wait context parameter",
+      "description": "The hook is called with a context object containing a wait property to configure the debounce delay",
+      "max_score": 25
+    },
+    {
+      "name": "Update arguments",
+      "description": "The mutation is called with an object containing quantity, id (itemId), productId, and variantId as required by the hook",
+      "max_score": 25
+    },
+    {
+      "name": "Debounce behavior",
+      "description": "The quantity update mutation is not called immediately on every input change event; a debounce or timeout mechanism is used",
+      "max_score": 15
+    },
+    {
+      "name": "Initial quantity display",
+      "description": "The input element is initialized with the currentQuantity prop value from the component's props",
+      "max_score": 10
+    }
+  ]
+}

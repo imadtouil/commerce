@@ -1,0 +1,32 @@
+{
+  "context": "This criteria evaluates correct usage of the getProduct server-side operation from @vercel/commerce-commercejs to fetch a single product by its permalink slug. It assesses the correct slug lookup mechanism, variant retrieval, data normalization, and proper Next.js notFound handling.",
+  "type": "weighted_checklist",
+  "capability_tested": "Fetch Single Product by Slug (Server-Side)",
+  "checklist": [
+    {
+      "name": "getProduct operation",
+      "description": "The getProduct operation is imported and called from @vercel/commerce-commercejs with a variables object containing the slug",
+      "max_score": 30
+    },
+    {
+      "name": "Slug as permalink",
+      "description": "The slug from context.params is passed as the lookup variable, and the operation resolves it as a permalink (not a product ID)",
+      "max_score": 25
+    },
+    {
+      "name": "notFound handling",
+      "description": "When no product is found for the given slug, the function returns { notFound: true } as required by Next.js",
+      "max_score": 20
+    },
+    {
+      "name": "Normalized product shape",
+      "description": "The returned product includes normalized fields: id, name, slug, images, price, variants, and options",
+      "max_score": 15
+    },
+    {
+      "name": "Variants included",
+      "description": "The product data includes variants with their associated options, retrieved via the separate variant fetch operation",
+      "max_score": 10
+    }
+  ]
+}

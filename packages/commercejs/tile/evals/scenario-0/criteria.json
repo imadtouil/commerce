@@ -1,0 +1,32 @@
+{
+  "context": "This criteria evaluates correct usage of the useCart SWR hook from @vercel/commerce-commercejs to retrieve and display the shopping cart. It assesses whether the implementation properly consumes the hook, handles the isEmpty computed property, and correctly handles loading and empty states.",
+  "type": "weighted_checklist",
+  "capability_tested": "Cart Retrieval",
+  "checklist": [
+    {
+      "name": "useCart hook usage",
+      "description": "The useCart hook is imported from @vercel/commerce-commercejs and called without arguments to retrieve cart state",
+      "max_score": 30
+    },
+    {
+      "name": "isEmpty property",
+      "description": "The component uses the isEmpty property returned by useCart (not manually computing cart length) to determine if the cart is empty",
+      "max_score": 25
+    },
+    {
+      "name": "Loading state",
+      "description": "When useCart returns undefined data (loading), the component renders a loading indicator",
+      "max_score": 20
+    },
+    {
+      "name": "Empty cart message",
+      "description": "When isEmpty is true, the component renders a message indicating the cart is empty",
+      "max_score": 15
+    },
+    {
+      "name": "Line items display",
+      "description": "When the cart has items, each line item's name and quantity from cart.lineItems is rendered",
+      "max_score": 10
+    }
+  ]
+}
