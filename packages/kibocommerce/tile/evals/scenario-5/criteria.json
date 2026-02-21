@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the useSignup mutation hook from @vercel/commerce-kibocommerce. Tests knowledge of the hook's required four-field input shape ({ firstName, lastName, email, password }), the two-step registration process handled internally by the package, and proper form state management.",
+  "type": "weighted_checklist",
+  "capability_tested": "Customer Registration - Signup",
+  "checklist": [
+    {
+      "name": "Uses useSignup hook",
+      "description": "The component imports and calls useSignup from @vercel/commerce-kibocommerce, not a custom fetch.",
+      "max_score": 30
+    },
+    {
+      "name": "All four fields passed",
+      "description": "The mutation is called with all four required fields: firstName, lastName, email, and password.",
+      "max_score": 30
+    },
+    {
+      "name": "Loading state",
+      "description": "The submit button is disabled while the mutation is in progress.",
+      "max_score": 15
+    },
+    {
+      "name": "Error display",
+      "description": "Errors from the mutation are caught and rendered to the user.",
+      "max_score": 15
+    },
+    {
+      "name": "onSuccess callback",
+      "description": "The onSuccess prop is called after the signup mutation resolves successfully.",
+      "max_score": 10
+    }
+  ]
+}

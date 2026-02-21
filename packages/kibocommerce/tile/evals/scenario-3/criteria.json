@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the useUpdateItem mutation hook from @vercel/commerce-kibocommerce. Tests knowledge of the hook's item context pattern, correct argument passing for quantity updates, and the package's built-in behavior of delegating removal when quantity drops below 1.",
+  "type": "weighted_checklist",
+  "capability_tested": "Update Cart Item Quantity",
+  "checklist": [
+    {
+      "name": "Uses useUpdateItem hook",
+      "description": "The component imports and calls useUpdateItem from @vercel/commerce-kibocommerce, not a generic PUT fetch.",
+      "max_score": 25
+    },
+    {
+      "name": "Item context initialization",
+      "description": "The useUpdateItem hook is initialized with the line item as the item context (passed to the hook call, not the mutation function).",
+      "max_score": 30
+    },
+    {
+      "name": "Passes quantity correctly",
+      "description": "The mutation function receives an object with the new quantity value from the input.",
+      "max_score": 20
+    },
+    {
+      "name": "Input initialized from lineItem",
+      "description": "The numeric input is initialized with lineItem.quantity as its default value.",
+      "max_score": 15
+    },
+    {
+      "name": "Zero quantity behavior",
+      "description": "The component does not block quantity 0 — it passes it to the hook, which handles removal internally.",
+      "max_score": 10
+    }
+  ]
+}

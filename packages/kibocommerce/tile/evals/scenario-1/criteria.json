@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the useCart SWR hook from @vercel/commerce-kibocommerce to fetch and display cart state. Tests knowledge of the hook's return shape (data, isLoading, error, isEmpty) and proper rendering logic for loading, empty, and populated cart states.",
+  "type": "weighted_checklist",
+  "capability_tested": "Cart Retrieval",
+  "checklist": [
+    {
+      "name": "Uses useCart hook",
+      "description": "The component imports and calls useCart from @vercel/commerce-kibocommerce (not a custom fetch or useEffect).",
+      "max_score": 30
+    },
+    {
+      "name": "Handles isLoading",
+      "description": "The component checks the isLoading return value from useCart and renders a loading state while data is being fetched.",
+      "max_score": 20
+    },
+    {
+      "name": "Uses isEmpty property",
+      "description": "The component uses the isEmpty property from the cart data (not manually checking lineItems.length === 0 without using the property).",
+      "max_score": 20
+    },
+    {
+      "name": "Renders line items",
+      "description": "When the cart has items, the component renders each item from data.lineItems showing at least the name and quantity.",
+      "max_score": 20
+    },
+    {
+      "name": "Correct hook access pattern",
+      "description": "The hook is accessed correctly through the commerce provider context (not as a standalone import outside of provider context).",
+      "max_score": 10
+    }
+  ]
+}

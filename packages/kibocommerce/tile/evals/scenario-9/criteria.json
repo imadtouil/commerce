@@ -1,0 +1,32 @@
+{
+  "context": "Evaluates whether the candidate correctly uses the normalizeProduct and normalizeCart utility functions from @vercel/commerce-kibocommerce. Tests knowledge of the normalization layer that converts Kibo-specific GraphQL response shapes to the standard @vercel/commerce data model, including field mappings for id, name, slug, price, and images.",
+  "type": "weighted_checklist",
+  "capability_tested": "Product Data Normalization",
+  "checklist": [
+    {
+      "name": "Uses normalizeProduct",
+      "description": "The solution imports and calls normalizeProduct from the package rather than manually mapping fields from the Kibo API response.",
+      "max_score": 30
+    },
+    {
+      "name": "Uses normalizeCart",
+      "description": "The solution imports and calls normalizeCart from the package for converting raw Kibo cart data.",
+      "max_score": 25
+    },
+    {
+      "name": "Correct import paths",
+      "description": "Functions are imported from @vercel/commerce-kibocommerce (e.g., from the package's lib/normalize or main export), not reimplemented or imported from @vercel/commerce.",
+      "max_score": 20
+    },
+    {
+      "name": "id from productCode",
+      "description": "The normalized product's id field corresponds to the Kibo productCode field (demonstrating knowledge of the field mapping).",
+      "max_score": 15
+    },
+    {
+      "name": "Both functions exported",
+      "description": "Both the normalizeProduct wrapper and the normalizeCart wrapper are exported from the module.",
+      "max_score": 10
+    }
+  ]
+}
